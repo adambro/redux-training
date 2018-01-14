@@ -3,7 +3,10 @@ import AppRenderer from './app'
 import reducer from './reducer'
 
 // create store
-const store = createStore(reducer)
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 // Create renderer and pass dispatcher
 const appHost =  document.getElementById('app')
