@@ -9,4 +9,5 @@ export const selectCartProductsDetails = state => {
       quantity: p.quantity
     }
   })
+  .sort((a, b) => a.productId - b.productId)
 }

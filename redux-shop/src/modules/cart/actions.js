@@ -1,15 +1,35 @@
+import {
+  ADD_PRODUCT,
+  INCREASE_PRODUCT_QUANTITY,
+  DECREASE_PRODUCT_QUANTITY,
+  REMOVE_PRODUCT,
+} from './constants'
+
 export const addProductToCart = (productId, quantity) => {
-  throw new Error('Not implemented')
+  return {
+    type: ADD_PRODUCT,
+    productId,
+    quantity
+  }
 }
 
 export const increaseProductQuantity = (productId) => {
-  throw new Error('Not implemented')
+  return {
+    type: INCREASE_PRODUCT_QUANTITY,
+    productId
+  }
 }
 
 export const decreaseProductQuantity = (productId) => {
-  throw new Error('Not implemented')
+  return {
+    type: DECREASE_PRODUCT_QUANTITY,
+    productId
+  }
 }
 
 export const removeProductFromCart = (productId) => {
-  throw new Error('Not implemented')
+  return {
+    type: REMOVE_PRODUCT,
+    productId
+  }
 }

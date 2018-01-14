@@ -4,6 +4,7 @@ import cartReducer from './modules/cart/reducer'
 
 const rootReducer = combineReducers({
   shop: shopReducer,
+  cart: cartReducer
 })
 
 const store = createStore(
