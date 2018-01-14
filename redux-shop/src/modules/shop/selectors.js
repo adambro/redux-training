@@ -1,5 +1,7 @@
 const selectShopState = state => state.shop
 
+export const selectProducts = state => state.shop
+
 const uniqueCategoryFilter = (value, index, array) => {
   return array.findIndex(c => c.id === value.id) === index
 }

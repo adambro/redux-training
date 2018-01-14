@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router'
-import Header from './components/Header'
-import PageNavigation from './containers/PageNavigation'
-import HomePage from './containers/HomePage'
-import CategoryPage from './containers/CategoryPage'
-import ProductPage from './containers/ProductPage'
-import CartPage from './containers/CartPage'
-import routes from './routes'
+import Header from './Header'
+import PageNavigation from '../containers/PageNavigation'
+import HomePage from '../containers/HomePage'
+import CategoryPage from '../containers/CategoryPage'
+import ProductPage from '../containers/ProductPage'
+import CartPage from '../containers/CartPage'
+import routes from '../routes'
 
 class App extends Component {
+  componentDidMount () {
+    const { loadProducts } = this.props
+
+    loadProducts()
+  }
+
   render() {
+    const { products } = this.props
+
+    if (!products.length) {
+      return (
+        <div className="App">
+          <Header />
+        </div>
+      )
+    }
     return (
       <div className="App">
         <Header />

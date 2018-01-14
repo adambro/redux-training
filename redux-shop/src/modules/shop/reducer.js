@@ -1,6 +1,4 @@
-import products from './products.json'
-
-const initialState = products
+const initialState = []
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
