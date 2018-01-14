@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Cart from '../components/Cart'
 import { selectCartProductsDetails } from '../modules/cart/selectors'
-import { increaseProductQuantity, decreaseProductQuantity, removeProductFromCart } from '../modules/cart/actions'
+import { increaseProductQuantity, decreaseProductQuantity, removeProductFromCart, checkout } from '../modules/cart/actions'
 
 const mapStateToProps = (state, props) => {
   return {
@@ -25,6 +25,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   increaseQuantity: increaseProductQuantity,
   decreaseQuantity: decreaseProductQuantity,
   removeProduct: removeProductFromCart,
+  checkout: checkout,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

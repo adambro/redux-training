@@ -1,5 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
+import { all } from 'redux-saga/effects'
 import shopReducer from './modules/shop/reducer'
 import cartReducer from './modules/cart/reducer'
 
@@ -10,11 +11,21 @@ const rootReducer = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+const rootSaga = function * () {
+  yield all([
+    // add sagas here
+  ])
+}
+
+const sagaMiddleware = createSagaMiddleware()
+
 const store = createStore(
   rootReducer,
   composeEnhancers(
-    applyMiddleware(thunk)
+    applyMiddleware(sagaMiddleware)
   )
 )
+
+sagaMiddleware.run(rootSaga)
 
 export default store
