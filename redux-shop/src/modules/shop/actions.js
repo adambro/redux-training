@@ -1,5 +1,17 @@
+import { LOAD_PRODUCTS_SUCCEEDED } from './contants'
+
 export function loadProducts () {
-  throw new Error('Not implemented')
+  return dispatch => 
+    fetchProducts()
+      .then(products => loadProductsSucceeded(products))
+      .then(action => dispatch(action))
+}
+
+export function loadProductsSucceeded (products) {
+  return {
+    type: LOAD_PRODUCTS_SUCCEEDED,
+    products
+  }
 }
 
 function fetchProducts () {
