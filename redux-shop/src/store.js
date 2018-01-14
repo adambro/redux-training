@@ -3,6 +3,8 @@ import createSagaMiddleware from 'redux-saga'
 import { all } from 'redux-saga/effects'
 import shopReducer from './modules/shop/reducer'
 import cartReducer from './modules/cart/reducer'
+import shopSaga from './modules/shop/sagas'
+import cartSaga from './modules/cart/sagas'
 
 const rootReducer = combineReducers({
   shop: shopReducer,
@@ -13,7 +15,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootSaga = function * () {
   yield all([
-    // add sagas here
+    shopSaga(),
+    cartSaga()
   ])
 }
 

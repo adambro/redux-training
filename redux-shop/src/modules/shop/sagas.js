@@ -1,7 +1,14 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
+import { LOAD_PRODUCTS_REQUESTED } from './constants'
+import { loadProductsSucceeded } from './actions'
 
 export default function * shopSaga () {
-  // TODO: Implement
+  yield takeEvery(LOAD_PRODUCTS_REQUESTED, fetchProductsSaga)
+}
+
+export function * fetchProductsSaga () {
+  let products = yield call(fetchProducts)
+  yield put(loadProductsSucceeded(products))
 }
 
 function fetchProducts () {
