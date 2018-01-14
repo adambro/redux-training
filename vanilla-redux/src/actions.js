@@ -1,9 +1,9 @@
 import { NEXT_SLIDE, PREVIOUS_SLIDE } from './constants'
 
 export function nextSlide () {
-  throw new Error('Not implemented')
+  return { type: NEXT_SLIDE }
 }
 
 export function previousSlide () {
-  throw new Error('Not implemented')
+  return { type: PREVIOUS_SLIDE }
 }
