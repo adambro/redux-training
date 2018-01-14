@@ -1,9 +1,13 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import logger from 'redux-logger'
 import AppRenderer from './app'
 import reducer from './reducer'
 
 // create store
-const store = createStore(reducer)
+const store = createStore(
+  reducer,
+  applyMiddleware(logger)
+)
 
 // Create renderer and pass dispatcher
 const appHost =  document.getElementById('app')
