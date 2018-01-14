@@ -1,8 +1,15 @@
+import { LOAD_PRODUCTS_REQUESTED, LOAD_PRODUCTS_SUCCEEDED } from './constants'
+
 export function loadProducts () {
-  throw new Error('Not implemented')
+  return {
+    type: LOAD_PRODUCTS_REQUESTED
+  }
 }
 
-function fetchProducts () {
-  return fetch('https://8c8mvg5amh.execute-api.eu-central-1.amazonaws.com/live/products')
-    .then(r => r.json())
+export function loadProductsSucceeded(products) {
+  return {
+    type: LOAD_PRODUCTS_SUCCEEDED,
+    products: products
+  }
 }
+

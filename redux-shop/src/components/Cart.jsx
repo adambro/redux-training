@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from './Button'
 import Link from './Link'
 
-const Cart = ({ products = [], increaseQuantity, decreaseQuantity, removeProduct }) => {
+const Cart = ({ products = [], increaseQuantity, decreaseQuantity, removeProduct, checkout }) => {
   if(!products.length) {
     return (
       <CartContainer>
@@ -26,7 +26,7 @@ const Cart = ({ products = [], increaseQuantity, decreaseQuantity, removeProduct
           />
         ))
       }
-      <CheckoutButton to='/checkout'>
+      <CheckoutButton to='/checkout' onClick={checkout}>
         Checkout
       </CheckoutButton>
     </CartContainer>
