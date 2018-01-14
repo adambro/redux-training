@@ -1,11 +1,13 @@
 import { selectProductDetailsById } from '../shop/selectors'
 
 export const selectCartProductsDetails = state => {
-  const products = state.cart.products
+  const cart = state.cart
+  const productQuantities = Object.keys(state.cart)
+    .map(id => ({ id, quantity: cart[id] }))
 
-  return products.map(p => {
+  return productQuantities.map(p => {
     return {
-      product: selectProductDetailsById(state, p.productId),
+      product: selectProductDetailsById(state, p.id),
       quantity: p.quantity
     }
   })
